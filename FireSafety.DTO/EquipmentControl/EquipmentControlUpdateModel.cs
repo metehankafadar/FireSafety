@@ -18,5 +18,6 @@ namespace FireSafety.DTO.EquipmentControl
         public bool IsActived { get; set; }
         public int EquipmentId { get; set; }
 
+
     }
 }

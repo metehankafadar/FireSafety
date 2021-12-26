@@ -10,7 +10,7 @@ namespace FireSafety.DTO.ProductionRequirement
     {
         public int Count { get; set; }
 
-        public int EquipmentId { get; set; }
+        public int EquipmentTypeId { get; set; }
 
         public int ProductionUnitId { get; set; }
         public bool IsActive { get; set; }

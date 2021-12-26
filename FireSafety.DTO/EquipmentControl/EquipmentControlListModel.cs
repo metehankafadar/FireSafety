@@ -8,6 +8,7 @@ namespace FireSafety.DTO
 {
     public class EquipmentControlListModel
     {
+        public int Id { get; set; }
         public bool PhysicalInspection { get; set; }
         public bool IsActived { get; set; }
         public double PressureLevel { get; set; }
@@ -15,6 +16,8 @@ namespace FireSafety.DTO
         public DateTime ControlDate { get; set; }
         public string CreatedByUser { get; set; }
         public string EquipmentType { get; set; }
-       
+        public string EquipmentSeriNo { get; set; }
+
+
     }
 }

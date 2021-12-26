@@ -28,9 +28,11 @@ namespace FireSafety.Business
             {
 
                 ProductionRequirementListModel model = new ProductionRequirementListModel();
+                model.Id = item.Id;
                 model.Count = item.Count;
-                model.EquipmentName = item.Equipment.EquipmentType.Name;
+                model.EquipmentTypeName = item.EquipmentType.Name;
                 model.ProductionUnitName = item.ProductionUnit.Name;
+                model.IsActive = item.IsActive;
 
                 listModels.Add(model);
 
@@ -45,7 +47,7 @@ namespace FireSafety.Business
             var item = productionRequirementRepository.Find(p => p.Id == id);
             ProductionRequirementListModel model = new ProductionRequirementListModel();
             model.Count = item.Count;
-            model.EquipmentName = item.Equipment.EquipmentType.Name;
+            model.EquipmentTypeName = item.EquipmentType.Name;
             model.ProductionUnitName = item.ProductionUnit.Name;
             item.IsActive = model.IsActive;
 
@@ -57,7 +59,7 @@ namespace FireSafety.Business
             ProductionRequirement item = new ProductionRequirement();
             item.Count = model.Count;
             item.ProductionUnitId = model.ProductionUnitId;
-            item.EquipmentId = model.EquipmentId;
+            item.EquipmentTypeId = model.EquipmentTypeId;
             item.IsActive = model.IsActive;
             return productionRequirementRepository.Insert(item);
         }
@@ -65,7 +67,7 @@ namespace FireSafety.Business
         public int UpdateProductionRequirement(ProductionRequirementUpdateModel productionRequirement)
         {
             ProductionRequirement pr = productionRequirementRepository.Find(e => e.Id == productionRequirement.Id);
-            pr.EquipmentId = productionRequirement.EquipmentId;
+            pr.EquipmentTypeId = productionRequirement.EquipmentTypeId;
             pr.IsActive = productionRequirement.IsActive;
             pr.ProductionUnitId = productionRequirement.ProductionUnitId;
 
@@ -82,9 +84,9 @@ namespace FireSafety.Business
 
                 ProductionRequirementListModel model = new ProductionRequirementListModel();
                 model.Count = item.Count;
-                model.EquipmentName = item.Equipment.EquipmentType.Name;
+                model.EquipmentTypeName = item.EquipmentType.Name;
                 model.ProductionUnitName = item.ProductionUnit.Name;
-
+                model.IsActive = item.IsActive;
                 listModels.Add(model);
 
             }

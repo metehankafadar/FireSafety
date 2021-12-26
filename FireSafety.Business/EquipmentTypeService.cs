@@ -29,6 +29,7 @@ namespace FireSafety.Business
             foreach (var item in equipmentsControl)
             {
                 EquipmentTypeListModel model = new EquipmentTypeListModel();
+                model.Id = item.Id;
                 model.IsActived = item.IsActive;
                 model.Name = item.Name;
                 listModels.Add(model);
@@ -43,6 +44,7 @@ namespace FireSafety.Business
         {
             var temp = equipmentTypeRepository.Find(e => e.Id == id);
             EquipmentTypeListModel model = new EquipmentTypeListModel();
+            model.Id = temp.Id;
             model.Name = temp.Name;
             model.IsActived = temp.IsActive;
             return model;
@@ -59,6 +61,7 @@ namespace FireSafety.Business
         public int UpdateEquipmentType(EquipmentTypeUpdateModel equipmentType )
         {
             EquipmentType eq = equipmentTypeRepository.Find(e => e.Id == equipmentType.Id);
+            eq.Id = equipmentType.Id;
             eq.IsActive = equipmentType.IsActived;
             eq.Name = equipmentType.Name;
 

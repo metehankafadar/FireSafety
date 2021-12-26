@@ -146,12 +146,14 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductionRequirementController.cs" />
     <Compile Include="Controllers\ProductionUnitsController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -163,13 +165,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\EquipmentControl\" />
     <Folder Include="Views\EquipmentType\" />
     <Folder Include="Views\ProductionRequirementService\" />
     <Folder Include="Views\ProductionUnits\" />
+    <Folder Include="Views\Report\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\EquipmentControl\EquipmentControlCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FireSafety.Business\FireSafety.Business.csproj">

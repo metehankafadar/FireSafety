@@ -1,0 +1,49 @@
+﻿@model IEnumerable<FireSafety.DTO.ProductionRequirement.ProductionRequirementListModel>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Min. @Html.DisplayNameFor(model => model.Count)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionUnitName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Count)</td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipmentTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductionUnitName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>

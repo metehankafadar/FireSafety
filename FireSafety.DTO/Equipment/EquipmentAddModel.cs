@@ -8,12 +8,14 @@ namespace FireSafety.DTO.Equipment
 {
     public class EquipmentAddModel
     {
-        public int EquipmentNo { get; set; }
-        public int SeriNo { get; set; }
+        
+        public string SeriNo { get; set; }
         public int EquipmentTypeId { get; set; }
         public int ProductionUnitId { get; set; }
         public DateTime ExpirationDate { get; set; }
         public bool IsAcvite { get; set; }
+        public string EquipmentNo { get; set; }
+
 
     }
 }

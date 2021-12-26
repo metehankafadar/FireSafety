@@ -8,6 +8,7 @@ namespace FireSafety.DTO.ProductionUnit
 {
     public class ProductionUnitListModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Location { get; set; }
         public bool IsActive { get; set; }

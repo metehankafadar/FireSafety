@@ -1,0 +1,138 @@
+﻿@model FireSafety.UI.Models.ReportListModel
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "Form1" }))
+    {
+        <div class="form-group">
+            ProductionUnitName
+            <div class="col-md-10">
+                @Html.DropDownList("Production", ViewBag.ProductionUnitList as SelectList, new { onchange = "document.getElementById('Form1').submit();" })
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" class="btn btn-default" value="Filter" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <h2>Report1</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                ProductionUnitName
+            </th>
+            <th>
+                ProductionLocationName
+            </th>
+            <th>
+                EquipmentTypeName
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.ReportRequirementModel)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductionUnitName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductionLocationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EquipmentTypeName)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+    
+            <h2>Report2</h2>
+            <table class="table table-responsive ">
+                <tr>
+                    <th>
+                        EquipmentSeriNo
+                    </th>
+                    <th>
+                        EquipmentTypeName
+                    </th>
+                    <th>
+                        CreatedByUser
+                    </th>
+                    <th>
+                        ControlDate
+                    </th>
+                    <th>
+                        ProductionUnitName
+                    </th>
+                    <th>
+                        ProductionLocationName
+                    </th>
+                    <th>
+                        PhysicalInspection
+                    </th>
+                    <th>
+                        IsActived
+                    </th>
+                    <th>
+                        PressureLevel
+                    </th>
+                    <th>
+                        ProtectionPinStatus
+                    </th>
+                   
+
+                </tr>
+
+                @foreach (var item in Model.ControlReportModel)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EquipmentSeriNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EquipmentTypeName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreatedByUser)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ControlDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductionUnitName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductionLocationName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhysicalInspection)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsActived)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PressureLevel)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProtectionPinStatus)
+                        </td>
+                        
+
+                    </tr>
+                }
+
+            </table>
+        
+
+
+      

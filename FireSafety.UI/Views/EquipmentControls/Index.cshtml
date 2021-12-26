@@ -1,0 +1,76 @@
+﻿@model IEnumerable<FireSafety.DTO.EquipmentControlListModel>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentSeriNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhysicalInspection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActived)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PressureLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProtectionPinStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ControlDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedByUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.EquipmentSeriNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PhysicalInspection)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IsActived)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PressureLevel)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProtectionPinStatus)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ControlDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreatedByUser)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EquipmentType)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>
+</tr>
+}
+
+</table>

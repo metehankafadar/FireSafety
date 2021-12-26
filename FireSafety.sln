@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireSafety.Business", "Fire
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireSafety.DTO", "FireSafety.DTO\FireSafety.DTO.csproj", "{8AE3207D-B0D5-4224-9FCF-F2261436A349}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireSafety.UI", "FireSafety.UI\FireSafety.UI.csproj", "{93C40168-6CB1-4F04-B839-CCC2C63BBC2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{8AE3207D-B0D5-4224-9FCF-F2261436A349}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AE3207D-B0D5-4224-9FCF-F2261436A349}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AE3207D-B0D5-4224-9FCF-F2261436A349}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93C40168-6CB1-4F04-B839-CCC2C63BBC2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93C40168-6CB1-4F04-B839-CCC2C63BBC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93C40168-6CB1-4F04-B839-CCC2C63BBC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93C40168-6CB1-4F04-B839-CCC2C63BBC2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

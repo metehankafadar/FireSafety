@@ -58,6 +58,9 @@
     <Compile Include="ProductionUnit\ProductionUnitListModel.cs" />
     <Compile Include="ProductionUnit\ProductUnitUpdateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportt\ControlReportModel.cs" />
+    <Compile Include="Reportt\ReportRequirementModel.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

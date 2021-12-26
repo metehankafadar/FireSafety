@@ -31,11 +31,15 @@ namespace FireSafety.Business
             foreach (var item in equipmentsControl)
             {
                 EquipmentControlListModel model = new EquipmentControlListModel();
+                model.Id = item.Id;
+                model.EquipmentSeriNo = item.Equipment.SeriNo;
                 model.PressureLevel = item.PressureLevel;
                 model.PhysicalInspection = item.PhysicalInspection;
                 model.ProtectionPinStatus = item.ProtectionPinStatus;
                 model.EquipmentType = item.Equipment.EquipmentType.Name;
+                model.ControlDate = item.ControlDate;
                 model.CreatedByUser = item.CreatedByUser;
+                model.IsActived = item.IsActive;
                 listModels.Add(model);
 
             }
@@ -53,6 +57,7 @@ namespace FireSafety.Business
             model.ProtectionPinStatus = item.ProtectionPinStatus;
             model.EquipmentType = item.Equipment.EquipmentType.Name;
             model.CreatedByUser = item.CreatedByUser;
+            model.ControlDate = item.ControlDate;
 
             return model;
 
@@ -67,7 +72,8 @@ namespace FireSafety.Business
             equipmentControl.PhysicalInspection = model.PhysicalInspection;
             equipmentControl.ProtectionPinStatus = model.ProtectionPinStatus;
             equipmentControl.EquipmentId = model.EquipmentId;
-            equipmentControl.CreatedByUser = model.CreatedByUser; // loginden alınabilir.
+            equipmentControl.CreatedByUser = model.CreatedByUser;
+            equipmentControl.ControlDate = DateTime.Now;
             return equipmentControlRepository.Insert(equipmentControl);
         }
 
@@ -82,6 +88,7 @@ namespace FireSafety.Business
             nw.ControlDate = DateTime.Now;
             nw.EquipmentId = equipmentControl.EquipmentId;
             nw.CreatedByUser = equipmentControl.CreatedByUser;
+            
             return equipmentControlRepository.Update(nw);
         }
 

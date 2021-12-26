@@ -26,12 +26,16 @@ namespace FireSafety.Business
             foreach (var item in equipments)
             {
                 EquipmentListModel model = new EquipmentListModel();
+                model.Id = item.Id;
                 model.EquipmentNo = item.EquipmentNo;
                 model.SeriNo = item.SeriNo;
                 model.EquipmentTypeName = item.EquipmentType.Name;
                 model.ExpirationDate = item.ExpirationDate;
                 model.ProductionUnitName = item.ProductionUnit.Name;
                 model.ProductionUnitLocation = item.ProductionUnit.Location;
+                model.IsAcvite = item.IsActive;
+                model.ProductionUnitId = item.ProductionUnit.Id;
+                model.EquipmentTypeId = item.EquipmentType.Id;
                 listModels.Add(model);
 
             }
@@ -47,6 +51,7 @@ namespace FireSafety.Business
 
             Equipment eq = new Equipment();
             eq.EquipmentNo = model.EquipmentNo;
+            eq.SeriNo = model.SeriNo;
             eq.ExpirationDate = model.ExpirationDate;
             eq.EquipmentTypeId = model.EquipmentTypeId;
             eq.ProductionUnitId = model.ProductionUnitId;
@@ -60,10 +65,13 @@ namespace FireSafety.Business
             var item = equipmentRepository.Find(s => s.Id == id);
             EquipmentListModel model = new EquipmentListModel();
             model.EquipmentNo = item.EquipmentNo;
+            model.SeriNo = item.SeriNo;
             model.ExpirationDate = item.ExpirationDate;
             model.EquipmentTypeName = item.EquipmentType.Name;
-            model.ProductionUnitLocation = item.ProductionUnit.Name;
+            model.ProductionUnitLocation = item.ProductionUnit.Location;
             model.IsAcvite = item.IsActive;
+            model.ProductionUnitId = item.ProductionUnit.Id;
+            model.EquipmentTypeId = item.EquipmentType.Id;
 
             return model;
         }

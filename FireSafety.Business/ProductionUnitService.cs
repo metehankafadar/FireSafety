@@ -28,6 +28,7 @@ namespace FireSafety.Business
             foreach (var item in productionUnits)
             {
                 ProductionUnitListModel model = new ProductionUnitListModel();
+                model.Id = item.Id;
                 model.Location = item.Location;
                 model.Name = item.Name;
                 model.IsActive = item.IsActive;
@@ -43,6 +44,7 @@ namespace FireSafety.Business
         {
             var item = productionUnitRepository.Find(p => p.Id == id);
             ProductionUnitListModel model = new ProductionUnitListModel();
+            model.Id = item.Id;
             model.Location = item.Location;
             model.Name = item.Name;
             model.IsActive = item.IsActive;
@@ -61,6 +63,7 @@ namespace FireSafety.Business
         public int UpdateProductionUnit(ProductUnitUpdateModel productionUnit)
         {
             ProductionUnit eq = productionUnitRepository.Find(p => p.Id == productionUnit.Id);
+            eq.Id = productionUnit.Id;
             eq.Name = productionUnit.Name;
             eq.IsActive = productionUnit.IsActive;
             eq.Location = productionUnit.Location;

@@ -12,8 +12,8 @@ namespace FireSafety.Entity
     {
         public int Count { get; set; }
 
-        public int EquipmentId { get; set; }
-        public virtual Equipment Equipment { get; set; }
+        public int EquipmentTypeId { get; set; }
+        public virtual EquipmentType EquipmentType { get; set; }
 
         public int ProductionUnitId { get; set; }
 

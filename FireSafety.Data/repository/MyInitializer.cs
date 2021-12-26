@@ -55,8 +55,8 @@ namespace FireSafety.Data.repository
             };
             EquipmentType Gozetleme = new EquipmentType()
             {
-                Id = 3,
-                Name = "Yangin Elbisesi",
+                Id = 4,
+                Name = "Kamera",
                 IsActive = true
             };
             context.EquipmentTypes.Add(Tup);
@@ -69,6 +69,7 @@ namespace FireSafety.Data.repository
             {
                 Id = 1,
                 EquipmentTypeId=1,
+                EquipmentNo="1",
                 IsActive = true,
                 ProductionUnitId = 3,
                 ExpirationDate = DateTime.Now.AddYears(1),
@@ -78,6 +79,7 @@ namespace FireSafety.Data.repository
             {
                 Id = 2,
                 EquipmentTypeId = 2,
+                EquipmentNo = "2",
                 IsActive = true,
                 ProductionUnitId=1,
                 ExpirationDate = DateTime.Now.AddYears(1),
@@ -87,6 +89,7 @@ namespace FireSafety.Data.repository
             Equipment Urun3 = new Equipment()
             {
                 Id = 3,
+                EquipmentNo = "3",
                 EquipmentTypeId = 2,
                 IsActive = false,
                 ProductionUnitId = 2,
@@ -136,22 +139,22 @@ namespace FireSafety.Data.repository
             ProductionRequirement firstReq = new ProductionRequirement()
             {
            
-                EquipmentId = 1,
+                EquipmentTypeId = 1,
                 Count = 5,
                 IsActive= true,
                 ProductionUnitId = 1
             };
             ProductionRequirement secondReq = new ProductionRequirement()
             {
-               
-                EquipmentId = 2,
+
+                EquipmentTypeId = 2,
                 Count = 2,
                 IsActive = true,
                 ProductionUnitId = 2
             };
             ProductionRequirement thirdReq = new ProductionRequirement()
             {
-                EquipmentId = 3,
+                EquipmentTypeId = 3,
                 Count = 7,
                 IsActive = true,
                 ProductionUnitId = 3

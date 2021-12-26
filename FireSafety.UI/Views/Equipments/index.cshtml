@@ -1,0 +1,67 @@
+﻿@model IEnumerable<FireSafety.DTO.Equipment.EquipmentListModel>
+
+@{
+    ViewBag.Title = "index";
+}
+
+<h2>index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.EquipmentNo)</th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeriNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionUnitName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductionUnitLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpirationDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsAcvite)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.EquipmentNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SeriNo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EquipmentTypeName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProductionUnitName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProductionUnitLocation)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ExpirationDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.IsAcvite)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>
+</tr>
+}
+
+</table>
