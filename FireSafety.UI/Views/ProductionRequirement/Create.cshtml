@@ -1,4 +1,4 @@
-﻿@model FireSafety.DTO.ProductionRequirement.ProductionRequirementListModel
+﻿@model FireSafety.DTO.ProductionRequirement.ProductionRequirementAddModel
 
 
 
@@ -25,17 +25,24 @@
                 </div>
             </div>
         </div>
+
         <div class="form-group">
-            @Html.LabelFor(model => model.EquipmentTypeName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.Count, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Count, new { @class = "form-control" })
+        </div>
+    </div>
+        <div class="form-group">
+            EquipmentTypeName
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.EquipmentTypeName, ViewBag.EquipmenttypeList as SelectList, new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.EquipmentTypeId, ViewBag.EquipmenttypeList as SelectList, new { @class = "form-control" })
             </div>
         </div>
 
         <div class="form-group">
             Production Unit Name
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.ProductionUnitName, ViewBag.ProductionunitList as SelectList, new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.ProductionUnitId, ViewBag.ProductionunitList as SelectList, new { @class = "form-control" })
             </div>
         </div>
 

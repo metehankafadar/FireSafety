@@ -70,6 +70,7 @@ namespace FireSafety.Business
             pr.EquipmentTypeId = productionRequirement.EquipmentTypeId;
             pr.IsActive = productionRequirement.IsActive;
             pr.ProductionUnitId = productionRequirement.ProductionUnitId;
+            pr.Count = productionRequirement.Count;
 
 
             return productionRequirementRepository.Update(pr);

@@ -99,7 +99,7 @@ namespace FireSafety.UI.Controllers
                 EquipmentUpdateModel updateModel = new EquipmentUpdateModel();
                 updateModel.Id = equipmentListModel.Id;
                 updateModel.IsAcvite = equipmentListModel.IsAcvite;
-                updateModel.EquipmentNo = equipmentListModel.EquipmentNo;
+                updateModel.EquipmentNo= equipmentListModel.EquipmentNo;
                 updateModel.ProductionUnitId = equipmentListModel.ProductionUnitId;
                 updateModel.EquipmentTypeId = equipmentListModel.EquipmentTypeId;
                 updateModel.ExpirationDate = equipmentListModel.ExpirationDate;

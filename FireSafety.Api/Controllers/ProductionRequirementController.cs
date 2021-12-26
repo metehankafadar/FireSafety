@@ -38,9 +38,9 @@ namespace FireSafety.Api.Controllers
             if (eq == null) return NotFound();
 
 
-            es.InsertProductionRequiremente(eq);
+          var a =  es.InsertProductionRequiremente(eq);
 
-            return Ok();
+            return Ok(a);
         }
         public IHttpActionResult Update(ProductionRequirementUpdateModel eq)
         {

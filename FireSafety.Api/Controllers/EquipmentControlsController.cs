@@ -54,9 +54,9 @@ namespace FireSafety.Api.Controllers
             if (sil == null) return NotFound();
 
 
-            ec.UpdateEquipmentControl(eq);
+            int a=ec.UpdateEquipmentControl(eq);
 
-            return Ok(sil);
+            return Ok(a);
 
         }
 

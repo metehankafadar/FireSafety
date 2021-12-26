@@ -15,9 +15,8 @@ namespace FireSafety.DTO
         public bool ProtectionPinStatus { get; set; }
         public DateTime ControlDate { get; set; }
         public string CreatedByUser { get; set; }
+        public int EquipmentId { get; set; }
         public string EquipmentType { get; set; }
         public string EquipmentSeriNo { get; set; }
-
-
     }
 }

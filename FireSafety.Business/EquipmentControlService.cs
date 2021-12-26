@@ -40,6 +40,7 @@ namespace FireSafety.Business
                 model.ControlDate = item.ControlDate;
                 model.CreatedByUser = item.CreatedByUser;
                 model.IsActived = item.IsActive;
+                model.EquipmentId= item.EquipmentId;
                 listModels.Add(model);
 
             }
@@ -58,6 +59,8 @@ namespace FireSafety.Business
             model.EquipmentType = item.Equipment.EquipmentType.Name;
             model.CreatedByUser = item.CreatedByUser;
             model.ControlDate = item.ControlDate;
+            model.EquipmentId = item.EquipmentId;
+
 
             return model;
 
@@ -74,22 +77,21 @@ namespace FireSafety.Business
             equipmentControl.EquipmentId = model.EquipmentId;
             equipmentControl.CreatedByUser = model.CreatedByUser;
             equipmentControl.ControlDate = DateTime.Now;
+
             return equipmentControlRepository.Insert(equipmentControl);
         }
 
         public int UpdateEquipmentControl(EquipmentControlUpdateModel equipmentControl)
         {
             EquipmentControl eq = equipmentControlRepository.Find(e => e.Id == equipmentControl.Id);
-            EquipmentControl nw = new EquipmentControl();
-            nw.PhysicalInspection = equipmentControl.PhysicalInspection;
-            nw.IsActive = equipmentControl.IsActived;
-            nw.PressureLevel = equipmentControl.PressureLevel;
-            nw.ProtectionPinStatus = equipmentControl.ProtectionPinStatus;
-            nw.ControlDate = DateTime.Now;
-            nw.EquipmentId = equipmentControl.EquipmentId;
-            nw.CreatedByUser = equipmentControl.CreatedByUser;
+            eq.PhysicalInspection = equipmentControl.PhysicalInspection;
+            eq.IsActive = equipmentControl.IsActived;
+            eq.PressureLevel = equipmentControl.PressureLevel;
+            eq.ProtectionPinStatus = equipmentControl.ProtectionPinStatus;
+            eq.ControlDate = DateTime.Now;
+            eq.CreatedByUser = equipmentControl.CreatedByUser;
             
-            return equipmentControlRepository.Update(nw);
+            return equipmentControlRepository.Update(eq);
         }
 
         public EquipmentControlListModel GetEquipmentControlByBarcode(string bar)
@@ -100,6 +102,8 @@ namespace FireSafety.Business
             model.PhysicalInspection = item.PhysicalInspection;
             model.ProtectionPinStatus = item.ProtectionPinStatus;
             model.EquipmentType = item.Equipment.EquipmentType.Name;
+            model.EquipmentId = item.EquipmentId;
+
             return model;
         }
 
@@ -116,6 +120,8 @@ namespace FireSafety.Business
                 md.PhysicalInspection = item.PhysicalInspection;
                 md.ProtectionPinStatus = item.ProtectionPinStatus;
                 md.EquipmentType = item.Equipment.EquipmentType.Name;
+                md.EquipmentId = item.EquipmentId;
+
                 model.Add(md);
             }
             return model;

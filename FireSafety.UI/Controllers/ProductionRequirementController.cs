@@ -39,8 +39,6 @@ namespace FireSafety.UI.Controllers
 
             ViewBag.EquipmenttypeList = new SelectList(EquipmenttypeList.ToList(), "Value", "Text");
 
-            var resulteq = httpService.getService<EquipmentListModel>($"Equipments/getById/{id}");
-
             List<ProductionUnitListModel> productionunitList = httpService.getService<List<ProductionUnitListModel>>("ProductionUnits/getAll");
 
 
@@ -48,15 +46,20 @@ namespace FireSafety.UI.Controllers
                                      select new SelectListItem { Value = t.Id.ToString(), Text = t.Name };
             ViewBag.ProductionunitList = new SelectList(ProductionUnitList.ToList(), "Value", "Text");
 
+          
+            return View(result);
+        }
+        [HttpPost]
+        public ActionResult Edit(ProductionRequirementUpdateModel equipmenttypeUpdateModel)
+        {
             
 
 
+            //HTTP GET
+            httpService.postServiceAsync<int, ProductionRequirementUpdateModel>($"ProductionRequirement/Update", equipmenttypeUpdateModel);
 
 
-
-
-
-            return View(result);
+            return RedirectToAction("Index");
         }
 
         public ActionResult Delete(int id)
@@ -108,13 +111,13 @@ namespace FireSafety.UI.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                httpService.postServiceAsync<int, ProductionRequirementAddModel>("Productionrequirement/Add", productionrequirementAddModel);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return RedirectToAction("Index");
             }
         }
     }

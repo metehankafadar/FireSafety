@@ -22,28 +22,37 @@ namespace FireSafety.UI.Controllers
             IEnumerable<EquipmentControlListModel> result = httpService.getService<IEnumerable<EquipmentControlListModel>>("EquipmentControls/getall");
             return View(result);
         }
+
+        [HttpPost]
+        public ActionResult Edit(EquipmentControlUpdateModel equipmentControlUpdateModel)
+        {
+            httpService.postServiceAsync<int, EquipmentControlUpdateModel>($"EquipmentControls/Update", equipmentControlUpdateModel);
+
+            return RedirectToAction("Index");
+        }
         // GET: EquipmentControl/Edit/5
         public ActionResult Edit(int id)
         {
             EquipmentControlListModel result;
 
 
+
+            List<EquipmentListModel> equipmentList = httpService.getService<List<EquipmentListModel>>("Equipments/getAll");
+
+            var EquipmentList = from EquipmentListModel t in equipmentList
+                                select new SelectListItem
+                                {
+                                    Value = t.Id.ToString(),
+                                    Text = t.SeriNo + "-" + t.EquipmentTypeName
+                                };
+
+            ViewBag.EquipmentList = new SelectList(EquipmentList.ToList(), "Value", "Text");
+
+
             //HTTP GET
             result = httpService.getService<EquipmentControlListModel>($"EquipmentControls/getById/{id}");
 
-            List<EquipmentTypeListModel> equipmenttypeList = httpService.getService<List<EquipmentTypeListModel>>($"EquipmentTypes/getAll");
-
-
-            var EquipmenttypeList = from EquipmentTypeListModel t in equipmenttypeList
-                                    select new SelectListItem { Value = t.Id.ToString(), Text = t.Name };
-
-            ViewBag.EquipmenttypeList = new SelectList(EquipmenttypeList.ToList(), "Value", "Text");
-
-            List<ProductionUnitListModel> productionUnitList = httpService.getService<List<ProductionUnitListModel>>($"ProductionUnits/getAll");
-            var selectedproList = from ProductionUnitListModel t in productionUnitList
-                                  select new SelectListItem { Value = t.Id.ToString(), Text = t.Name };
-
-            ViewBag.ProductionUnitList = new SelectList(selectedproList.ToList(), "Value", "Text");
+            
 
 
             return View(result);
@@ -54,9 +63,7 @@ namespace FireSafety.UI.Controllers
         {
             try
             {
-       
-
-                httpService.postServiceAsync<int, EquipmentControlAddModel>("EquipmentControls/Add", equipmentAddModel);
+      httpService.postServiceAsync<int, EquipmentControlAddModel>("EquipmentControls/Add", equipmentAddModel);
                 // TODO: Add update logic here
 
                 return RedirectToAction("Index");
